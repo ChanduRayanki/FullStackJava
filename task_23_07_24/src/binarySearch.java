@@ -1,20 +1,21 @@
-import java.lang.*;
 import java.util.*;
 
 public class binarySearch{
 	public static void main(String args[]) {
 		Scanner scan = new Scanner(System.in);
 		
-		int arr[]= {0,3,2,5,4,10,6};
+		int arr[]= {2,3,5,7,8,9};
 		System.out.print("Enter the search element: ");
 		int n = scan.nextInt();
 		Arrays.sort(arr);
 		int low = 0;
 		int high = arr.length-1;
+		int found=0;
 		while (low<=high){
-			int mid = (low+high)/2;
+			int mid = low+(high-low)/2;
 			if (n==arr[mid]){
 				System.out.println("Element found at index: "+mid);
+				found=1;
 				break;
 			}
 			else if (n<arr[mid]){
@@ -26,6 +27,9 @@ public class binarySearch{
 			else{
 				System.out.println("Element not found");
 			}
+		}
+		if (found==0){
+		System.out.println("Element not found");
 		}
 
 	}
